@@ -25,12 +25,21 @@ body {
 }
 
 .logo-container {
-    margin-bottom: 25px;
+
+    margin-bottom: 15px;
 }
 
 .apple-logo {
     width: 48px;
     height: 48px;
+
+    margin-bottom: 10px;
+}
+
+.apple-logo {
+    width: 50%;
+    height: 110px;
+
 }
 
 .form-wrapper h2 {

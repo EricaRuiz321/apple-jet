@@ -24,22 +24,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Handle form submissions (basic example, prevents default)
     signInForm.addEventListener('submit', (event) => {
-        event.preventDefault();
+        
         // Add sign-in logic here
         console.log('Sign In attempt:', 
             document.getElementById('signInName').value
         );
-        alert('Iniciando sesión (simulación)');
+       
     });
 
     registerForm.addEventListener('submit', (event) => {
-        event.preventDefault();
+        
         // Add registration logic here
         console.log('Register attempt:', 
             document.getElementById('registerName').value,
             document.getElementById('registerEmail').value
         );
-        alert('Registrando usuario (simulación)');
+        
     });
 
     const googleSignInButtons = document.querySelectorAll('.google-signin-button');

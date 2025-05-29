@@ -1,3 +1,4 @@
+
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -15,7 +16,7 @@
 <body>
     <div class="container">
         <div class="logo-container">
-            <img src="apple_logo.png" alt="Apple Logo" class="apple-logo">
+            <img src="APPLE-JET.png" alt="Apple Logo" class="apple-logo">
         </div>
         <div class="form-wrapper">
             <div class="tabs">
@@ -23,17 +24,16 @@
                 <button id="registerTab" class="tab-button" data-form="registerForm">Registrarse</button>
             </div>
 
-            <form id="signInForm" class="form active">
-                <h2>Iniciar Sesión</h2>
+            <form id="signInForm" class="form active" method="POST" action="../../controlador/iniciarSesion.php">
                 <div class="input-group">
-                    <label for="signInName">Nombre de usuario o Apple ID</label>
-                    <input type="text" id="signInName" required>
+                    <label for="signInName">Nombre de usuario</label>
+                    <input type="text" id="signInName" name="nombre" required>
                 </div>
                 <div class="input-group">
                     <label for="signInPassword">Contraseña</label>
-                    <input type="password" id="signInPassword" required>
+                    <input type="password" id="signInPassword" name="contraseña" required>
                 </div>
-                <button type="submit" class="submit-button">Iniciar Sesión</button>
+                <button type="submit" name="iniciarSesion" class="submit-button">Iniciar Sesión</button>
 
                 <div class="or-divider">
                     <span class="line"></span>
@@ -47,27 +47,20 @@
                 </button>
             </form>
 
-            <form id="registerForm" class="form">
-                <h2>Crear tu Apple ID</h2>
+            <form id="registerForm" class="form" method="POST" action="../../controlador/registro.php">
                 <div class="input-group">
                     <label for="registerName">Nombre completo</label>
-                    <input type="text" id="registerName" required>
+                    <input type="text" id="registerName" name="nombre" required>
                 </div>
                 <div class="input-group">
                     <label for="registerEmail">Correo Electrónico</label>
-                    <input type="email" id="registerEmail" required>
+                    <input type="email" id="registerEmail" name="correo" required>
                 </div>
                 <div class="input-group">
                     <label for="registerPassword">Contraseña</label>
-                    <input type="password" id="registerPassword" required>
+                    <input type="password" id="registerPassword" name="contraseña" required>
                 </div>
-                <button type="submit" class="submit-button">Registrarse</button>
-                
-                <div class="or-divider">
-                    <span class="line"></span>
-                    <span class="text">o</span>
-                    <span class="line"></span>
-                </div>
+                <button type="submit" name="registrarse" class="submit-button">Registrarse</button>
                 
                 <button type="button" class="google-signin-button">
                     <img src="google_logo.png" alt="Google G" class="google-logo">
