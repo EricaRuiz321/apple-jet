@@ -349,3 +349,4 @@ updateCartCount();
 // Handle listeners for dynamically added "Add to cart" in product details modal
 // This is handled by modalAddToCartButton listener already.
 
+
