@@ -17,7 +17,7 @@ if (mysqli_num_rows($resultado) == 1) {
         $_SESSION['usuario'] = $row['nombre']; 
     
         
-        header("Location: ../vista/home/index.html");
+        header("Location: ../vista/home/index.php");
         exit();
 
     } else { 

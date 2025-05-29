@@ -299,7 +299,7 @@ checkoutButton.addEventListener('click', () => {
 clearCartButton.addEventListener('click', handleClearCart);
 
 checkoutForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+    //e.preventDefault();
     const formData = new FormData(checkoutForm);
     currentUser.name = formData.get('name');
     currentUser.email = formData.get('email');

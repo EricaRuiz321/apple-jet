@@ -8,7 +8,7 @@
 <body>
     <header>
         <div class="logo">
-            <img src="apple_logo_simple.png" alt="Apple Logo" id="header-logo-img">
+            <img src="APPLE-JET.png" alt="Apple Logo" id="header-logo-img">
         </div>
         <nav id="category-nav">
             <!-- Categorías se cargarán aquí por JS -->
@@ -28,7 +28,8 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Apple Store Demo. Solo con fines demostrativos.</p>
+        <p>&copy; 2025 Apple-Jet. Página web dinámica e interactiva para la visualización, 
+            compra y promoción de productos Apple.</p>
     </footer>
 
     <!-- Modal de Detalles del Producto -->
@@ -62,20 +63,20 @@
         <div class="modal-content">
             <span class="close-button" data-modal-id="checkout-modal">&times;</span>
             <h2>Datos de Envío y Pago</h2>
-            <form id="checkout-form">
+            <form id="checkout-form" method="POST" action="../../controlador/compra.php">
                 <label for="checkout-name">Nombre Completo:</label>
-                <input type="text" id="checkout-name" name="name" required>
+                <input type="text" id="checkout-name" name="nombre" required>
                 
                 <label for="checkout-email">Correo Electrónico:</label>
-                <input type="email" id="checkout-email" name="email" required>
+                <input type="email" id="checkout-email" name="correo" required>
                 
                 <label for="checkout-address">Dirección de Envío:</label>
-                <input type="text" id="checkout-address" name="address" required>
+                <input type="text" id="checkout-address" name="direccion" required>
                 
                 <label for="checkout-phone">Teléfono:</label>
-                <input type="tel" id="checkout-phone" name="phone" pattern="[0-9]{7,10}" title="Número de teléfono (7-10 dígitos)" required>
+                <input type="tel" id="checkout-phone" name="telefono" pattern="[0-9]{7,10}" title="Número de teléfono (7-10 dígitos)" required>
                 
-                <button type="submit">Confirmar Compra</button>
+                <button type="submit" name="compra">Confirmar Compra</button>
             </form>
             <div id="checkout-success-message" style="display:none; text-align:center; padding: 20px; color: green;">
                 ¡Gracias por tu compra! Tu pedido ha sido procesado.

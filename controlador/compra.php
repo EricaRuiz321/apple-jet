@@ -5,14 +5,15 @@ require '../modelo/conexion.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = $_POST['nombre'];
     $correo = $_POST['correo'];
-    $contraseña = sha1($_POST['contraseña']);
+    $telefono = $_POST['telefono'];
+    $direccion = $_POST['direccion'];
 
     $conexionObj = new Conexion();
     $conn = $conexionObj->getConexion();
 
-    $sql = "INSERT INTO usuario (nombre, correo, contraseña) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO compra (nombre, correo, telefono, direccion) VALUES (?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sss", $nombre, $correo, $contraseña);
+    $stmt->bind_param("ssss", $nombre, $correo, $telefono, $direccion);
 
     if ($stmt->execute()) {
             $_SESSION['usuario'] = $nombre;
