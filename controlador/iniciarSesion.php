@@ -1,6 +1,6 @@
 <?php
 session_start(); 
-require '../db/conexion.php'; 
+require '../modelo/conexion.php'; 
 
 $conexionObj = new Conexion();
 $conexion = $conexionObj->getConexion();
