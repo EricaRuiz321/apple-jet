@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         forms.forEach(form => form.classList.remove('active'));
 
         // Activate clicked tab
+        
         event.currentTarget.classList.add('active');
         
         // Show corresponding form
