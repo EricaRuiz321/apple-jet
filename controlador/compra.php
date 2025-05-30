@@ -17,6 +17,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($stmt->execute()) {
             $_SESSION['usuario'] = $nombre;
+            $_SESSION['correo'] = $correo;
+            $_SESSION['telefono'] = $telefono;
+            $_SESSION['direccion'] = $direccion;
 
             header("Location: ../vista/home/index.php");
             exit();

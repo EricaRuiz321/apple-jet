@@ -8,14 +8,17 @@ $conexion = $conexionObj->getConexion();
 $nombre = $_POST['nombre']; 
 $contraseña = sha1($_POST['contraseña']); 
 
-$sql = "SELECT * FROM usuario WHERE nombre='$nombre' AND contraseña='$contraseña'"; 
-$resultado = mysqli_query($conexion, $sql);
-if (mysqli_num_rows($resultado) == 1) { 
-    $row = mysqli_fetch_assoc($resultado); 
+$sql = "SELECT * FROM usuario WHERE nombre = ? AND contraseña = ?";
+$stmt = $conexion->prepare($sql);
+$stmt->bind_param("ss", $nombre, $contraseña);
+$stmt->execute();
+$resultado = $stmt->get_result();
 
-    if ($row['rol'] == $rol) {
+    if ($resultado->num_rows === 1) {
+    $row = $resultado->fetch_assoc();
+
         $_SESSION['usuario'] = $row['nombre']; 
-    
+        $_SESSION['correo'] = $row['correo'];
         
         header("Location: ../vista/home/index.php");
         exit();
@@ -23,5 +26,5 @@ if (mysqli_num_rows($resultado) == 1) {
     } else { 
     echo "<script>alert('❌ Usuario o contraseña incorrectos.'); window.location='../vista/login/index.php';</script>";
 }
-    }
+    
     ?>

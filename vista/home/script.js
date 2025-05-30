@@ -202,7 +202,7 @@ function renderCart() {
                 <button class="quantity-btn decrease-qty" data-product-id="${item.id}" ${item.quantity === 1 ? 'disabled' : ''}>-</button>
                 <span class="quantity">${item.quantity}</span>
                 <button class="quantity-btn increase-qty" data-product-id="${item.id}">+</button>
-                <button class="remove-item-btn" data-product-id="${item.id}"><img src="trash_icon.png" alt="Eliminar"></button>
+                <button class="remove-item-btn" data-product-id="${item.id}"><img src="eliminar.png" alt="Eliminar"></button>
             </div>
         `;
         cartItemsContainer.appendChild(itemElement);
@@ -341,7 +341,7 @@ checkoutForm.addEventListener('submit', (e) => {
 });
 
 logoutButton.addEventListener('click', () => {
-    currentUser = { name: '', email: '', address: '', phone: '' };
+    currentUser = { name: '', email: '' };
     // cart = []; // Optionally clear cart on logout, or keep it
     // updateCartCount();
     // renderCart();

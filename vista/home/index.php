@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -15,10 +17,10 @@
         </nav>
         <div class="user-actions">
             <button id="cart-button" class="icon-button" aria-label="Abrir carrito">
-                <img src="cart_icon_apple.png" alt="Carrito"> Carrito (<span id="cart-count">0</span>)
+                <img src="carrito.jpg" alt="Carrito"> Carrito (<span id="cart-count">0</span>)
             </button>
             <button id="profile-button" class="icon-button" aria-label="Abrir perfil de usuario">
-                <img src="profile_icon_apple.png" alt="Perfil"> Perfil
+                <img src="usuario.jpg" alt="Perfil"> Perfil
             </button>
         </div>
     </header>
@@ -86,18 +88,17 @@
 
     <!-- Modal de Perfil de Usuario -->
     <div id="profile-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button" data-modal-id="profile-modal">&times;</span>
-            <h2>Perfil de Usuario</h2>
-            <div id="user-info">
-                <p>Nombre: <span id="profile-name">N/A</span></p>
-                <p>Correo: <span id="profile-email">N/A</span></p>
-                <p>Dirección: <span id="profile-address">N/A</span></p>
-                <p>Teléfono: <span id="profile-phone">N/A</span></p>
-            </div>
-            <button id="logout-button">Cerrar Sesión</button>
+    <div class="modal-content">
+        <span class="close-button" data-modal-id="profile-modal">&times;</span>
+        <h2>Perfil de Usuario</h2>
+        <div id="user-info">
+            <p>Nombre: <span id="registerName"><?= $_SESSION['usuario'] ?? 'N/A'; ?></span></p>
+            <p>Correo: <span id="registerEmail"><?= $_SESSION['correo'] ?? 'N/A'; ?></span></p>
         </div>
+        <a href="../../controlador/logout.php" id="logout-button" class="btn-logout">Cerrar Sesión</a>
+
     </div>
+</div>
     
     <script type="importmap">
     {
@@ -106,5 +107,18 @@
     
     </script>
     <script type="module" src="script.js"></script>
+    
+    <script>
+    document.getElementById("profile-button").addEventListener("click", function() {
+        document.getElementById("profile-modal").style.display = "block";
+    });
+
+    document.querySelectorAll(".close-button").forEach(btn => {
+        btn.addEventListener("click", function() {
+            const modalId = btn.getAttribute("data-modal-id");
+            document.getElementById(modalId).style.display = "none";
+        });
+    });
+</script>
 </body>
 </html>
