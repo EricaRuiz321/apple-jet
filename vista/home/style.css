@@ -494,3 +494,139 @@ footer {
 .contenedor-boton {
   text-align: center;
 }
+
+/*style compra*/
+/* Estilos generales del modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.close-button {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.close-button:hover {
+    color: #555;
+}
+
+/* Estilos del formulario */
+.form-wrapper {
+    padding: 10px;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: 500;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.input-group input:read-only {
+    background-color: #f5f5f5;
+    color: #777;
+}
+
+/* Botones */
+.form-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.primary-button, 
+.secondary-button, 
+.submit-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.primary-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.secondary-button {
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+.submit-button {
+    background-color: #2196F3;
+    color: white;
+}
+
+.primary-button:hover {
+    background-color: #45a049;
+}
+
+.secondary-button:hover {
+    background-color: #ddd;
+}
+
+.submit-button:hover {
+    background-color: #0b7dda;
+}
+/* Estilos para los bordes azules en los inputs */
+#checkout-modal .input-group input,
+#checkout-modal .input-group select,
+#checkout-modal .input-group textarea {
+    border: 2px solid #3498db; /* Azul estándar */
+    border-radius: 4px; /* Bordes ligeramente redondeados */
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Cambio de color al enfocar (opcional) */
+#checkout-modal .input-group input:focus,
+#checkout-modal .input-group select:focus,
+#checkout-modal .input-group textarea:focus {
+    border-color: #2980b9; /* Azul más oscuro al enfocar */
+    outline: none; /* Elimina el outline predeterminado */
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); /* Sutil sombra azul */
+}

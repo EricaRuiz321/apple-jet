@@ -73,6 +73,8 @@ function loadState() {
 
     const storedUser = localStorage.getItem('appleStoreUser');
     if (storedUser) currentUser = JSON.parse(storedUser);
+
+    populateProductSelect();
 }
 
 function updateCartCount() {
@@ -302,6 +304,8 @@ checkoutButton.addEventListener('click', () => {
     document.getElementById('checkout-email').value = currentUser.email || '';
     document.getElementById('checkout-address').value = currentUser.address || '';
     document.getElementById('checkout-phone').value = currentUser.phone || '';
+
+    document.getElementById('productos-hidden').value = JSON.stringify(cart);
     
     checkoutForm.style.display = 'block';
     checkoutSuccessMessage.style.display = 'none';
@@ -362,4 +366,45 @@ updateCartCount();
 // Handle listeners for dynamically added "Add to cart" in product details modal
 // This is handled by modalAddToCartButton listener already.
 
+//FUNCIONES PARA SELECCIONAR PRODCUTOS
 
+
+function populateProductSelect() {
+    const productSelect = document.getElementById('product-select');
+    productSelect.innerHTML = '<option value="">-- Seleccione un producto --</option>';
+    
+    productData.forEach(product => {
+        const option = document.createElement('option');
+        option.value = product.id;
+        option.textContent = `${product.name} - ${formatCurrencyCOP(product.price)}`;
+        option.dataset.category = product.category;
+        option.dataset.price = product.price;
+        productSelect.appendChild(option);
+    });
+    
+    // Agregar evento para autocompletar
+    productSelect.addEventListener('change', function() {
+        const selectedOption = this.options[this.selectedIndex];
+        if (selectedOption.value) {
+            document.getElementById('product-category').value = selectedOption.dataset.category;
+            document.getElementById('product-price').value = formatCurrencyCOP(selectedOption.dataset.price);
+        } else {
+            document.getElementById('product-category').value = '';
+            document.getElementById('product-price').value = '';
+        }
+    });
+}
+
+// FUNCION AÑADIR AL CARRITO 
+document.getElementById('checkout-form').addEventListener('submit', function(e) {
+    // Validar que todos los campos estén completos
+    const productSelect = document.getElementById('product-select');
+    if(productSelect.value === "") {
+        alert("Por favor selecciona un producto");
+        e.preventDefault();
+        return false;
+    }
+    
+    // Puedes añadir más validaciones aquí si lo necesitas
+    return true;
+});

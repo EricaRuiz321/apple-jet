@@ -15,8 +15,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("sss", $nombre, $correo, $contraseña);
 
     if ($stmt->execute()) {
+            $idUsuario = $conn->insert_id;
+
             $_SESSION['usuario'] = $nombre;
             $_SESSION['correo'] = $correo;
+            $_SESSION['idUsuario'] = $idUsuario;
 
             header("Location: ../vista/home/index.php");
             exit();
